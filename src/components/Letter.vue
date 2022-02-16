@@ -1,10 +1,13 @@
 <script>
 export default {
+    props: {
+      disabled: Boolean
+    }
 }
 </script>
 
 <template>
-    <input type="text" value="" />
+    <input type="text" value="" :disabled="disabled"/>
 </template>
 
 <style>

@@ -5,7 +5,8 @@ export default {
   // component options
   data() {
     return {
-      num_guesses: 6
+      num_guesses: 6,
+      disabled: false
     }
   },
   components: {
@@ -17,7 +18,8 @@ export default {
 
 <template>
   <div class="row form-group" v-for="index in num_guesses" :key="index">
-    <Word></Word>
+    <Word v-if="index==1" v-bind:disabled="false"></Word>
+    <Word v-else v-bind:disabled="true"></Word>
   </div>
 </template>
 

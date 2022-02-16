@@ -7,6 +7,9 @@
                 test: "test"
             }
         },
+        props: {
+          disabled: Boolean 
+        },
         components: {
             Letter
         }
@@ -16,7 +19,7 @@
 <template>
     <div class="row justify-content-center">
       <div class="col-sm-1" v-for="index in num_letters" :key="index">
-        <Letter></Letter>
+        <Letter v-bind:disabled="disabled"></Letter>
       </div>
     </div>
 </template>
