@@ -23,6 +23,13 @@
                console.log("Word Entered")
                console.log(e)
             },
+            findAllIndices(word,letter){
+                var indices = [];
+                for(var i=0; i<word.length;i++) {
+                    if (word[i] === letter) indices.push(i);
+                }
+                return(indices)
+            },
             enterWord(){
                 console.log(this.letters)
                 var word=''
@@ -41,7 +48,12 @@
             },
             revealLetters(letters){
                 for(var i =1; i<=Object.keys(letters).length;i++){
-                    if(this.wordle_answer.includes(this.letters[i])){
+                    if(this.findAllIndices(this.wordle_answer,this.letters[i]).includes(i-1)){
+                        console.log(this.letters[i])
+                        console.log(`Is in right place ${this.wordle_answer}`)
+                        this.letter_statuses[i]="rightlocation" 
+                    }
+                    else if(this.findAllIndices(this.wordle_answer,this.letters[i]).length>0){
                         console.log(this.letters[i])
                         console.log(`Is in ${this.wordle_answer}`)
                         this.letter_statuses[i]="rightletter"

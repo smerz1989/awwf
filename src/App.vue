@@ -7,7 +7,7 @@ export default {
     return {
       num_guesses: 6,
       disabled: false,
-      valid_words: ['ghost','pitch','hitch'],
+      valid_words: ['ghost','pitch','hitch','haunt'],
       wordle_answer: 'hitch'
     }
   },

@@ -31,10 +31,16 @@ export default {
         text-transform: uppercase;
         text-align: center;
     }
+    input:disabled {
+        background-color: lightgray;
+    }
     .neutral {
-        background-color: aliceblue;
+        background-color:azure;
     }
     .rightletter {
         background-color: gold;
+    }
+    .rightlocation {
+        background-color: lightgreen;
     }
 </style>
