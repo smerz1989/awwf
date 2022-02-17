@@ -27,4 +27,14 @@ export default {
 .form-group {
         margin-bottom: 15px;
 }
+    .error {
+        position: relative;
+        animation: shake .1s linear;
+        animation-iteration-count: 30;
+    }
+
+    @keyframes shake {
+        0% { left: -5px; }
+        100% { right: -5px; }
+    }
 </style>

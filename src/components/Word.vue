@@ -22,9 +22,13 @@
             enterWord(){
                 console.log(this.letters)
                 console.log(Object.keys(this.letters).length)
-                if(Object.keys(this.letters).length==5){
-                    console.log("Valid word")
+                var word=''
+                for(var i =1; i<=Object.keys(this.letters).length;i++){
+                    console.log(i)
+                    word=word.concat(this.letters[i])
                 }
+                console.log('Word is')
+                console.log(word)
             }
         }
     }
@@ -41,4 +45,5 @@
 </template>
 
 <style>
+
 </style>
