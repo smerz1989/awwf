@@ -3,6 +3,7 @@ export default {
     props: {
       disabled: Boolean,
       letters: Object,
+      letter_status: String,
       index: Number
     },
     methods: {
@@ -19,7 +20,7 @@ export default {
 </script>
 
 <template>
-    <input type="text" v-model="letters[index]" @keyup.enter="enterLetter" maxlength="1" :disabled="disabled"/>
+    <input type="text" v-bind:class="letter_status" v-model="letters[index]" @keyup.enter="enterLetter" maxlength="1" :disabled="disabled"/>
 </template>
 
 <style>
@@ -29,5 +30,11 @@ export default {
         font-size: 90px;
         text-transform: uppercase;
         text-align: center;
+    }
+    .neutral {
+        background-color: aliceblue;
+    }
+    .rightletter {
+        background-color: gold;
     }
 </style>

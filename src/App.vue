@@ -6,7 +6,9 @@ export default {
   data() {
     return {
       num_guesses: 6,
-      disabled: false
+      disabled: false,
+      valid_words: ['ghost','pitch','hitch'],
+      wordle_answer: 'hitch'
     }
   },
   components: {
@@ -18,8 +20,8 @@ export default {
 
 <template>
   <div class="row form-group" v-for="index in num_guesses" :key="index">
-    <Word v-if="index==1" v-bind:disabled="false"></Word>
-    <Word v-else v-bind:disabled="true"></Word>
+    <Word v-if="index==1" v-bind:disabled="false" v-bind:valid_words="valid_words" v-bind:wordle_answer="wordle_answer"></Word>
+    <Word v-else v-bind:disabled="true" v-bind:valid_words="valid_words" v-bind:wordle_answer="wordle_answer"></Word>
   </div>
 </template>
 
@@ -27,14 +29,4 @@ export default {
 .form-group {
         margin-bottom: 15px;
 }
-    .error {
-        position: relative;
-        animation: shake .1s linear;
-        animation-iteration-count: 30;
-    }
-
-    @keyframes shake {
-        0% { left: -5px; }
-        100% { right: -5px; }
-    }
 </style>
