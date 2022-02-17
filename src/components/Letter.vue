@@ -2,7 +2,7 @@
 export default {
     props: {
       disabled: Boolean,
-      letters: Array,
+      letters: Object,
       index: Number
     },
     methods: {
@@ -11,9 +11,7 @@ export default {
             console.log(e.target.value)
         },
         enterLetter(e){
-            console.log(e)
-            console.log(e.target.value)
-            console.log(this.letters)
+            this.$emit('enter-word')
         }
     }
 
