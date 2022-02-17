@@ -43,15 +43,23 @@
                     this.letterClass="error";
                     setTimeout(()=>{this.letterClass="col-sm-1";},500);
                 }else{
-                    this.revealLetters(this.letters)
+                    var num_correct_letters = this.revealLetters(this.letters)
+                    console.log(`Number of correct letters ${num_correct_letters}`)
+                    if(num_correct_letters==5){
+                        this.$emit('correct-word')
+                    }else{
+                        this.$emit('valid-word-entered')
+                    }
                 }
             },
             revealLetters(letters){
+                var num_correct = 0;
                 for(var i =1; i<=Object.keys(letters).length;i++){
                     if(this.findAllIndices(this.wordle_answer,this.letters[i]).includes(i-1)){
                         console.log(this.letters[i])
                         console.log(`Is in right place ${this.wordle_answer}`)
                         this.letter_statuses[i]="rightlocation" 
+                        num_correct++;
                     }
                     else if(this.findAllIndices(this.wordle_answer,this.letters[i]).length>0){
                         console.log(this.letters[i])
@@ -59,6 +67,7 @@
                         this.letter_statuses[i]="rightletter"
                     }
                 }
+                return(num_correct)
             }
 
         }

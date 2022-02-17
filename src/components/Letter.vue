@@ -32,7 +32,7 @@ export default {
         text-align: center;
     }
     input:disabled {
-        background-color: lightgray;
+        opacity: 0.5;
     }
     .neutral {
         background-color:azure;
