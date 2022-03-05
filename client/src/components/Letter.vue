@@ -25,14 +25,13 @@ export default {
 
 <style>
     input[type=text] {
-        height: 100px;
-        width: 100px;
-        font-size: 90px;
+        height: 100%;
+        width: 100%;
         text-transform: uppercase;
         text-align: center;
     }
     input:disabled {
-        opacity: 0.5;
+        opacity: 0.7;
     }
     .neutral {
         background-color:azure;
