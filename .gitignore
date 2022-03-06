@@ -10,12 +10,16 @@ lerna-debug.log*
 # environment variables
 .env
 
+# Data files
+public/*.json
+
 node_modules
 .DS_Store
 dist
 dist-ssr
 coverage
 *.local
+package-lock.json
 
 /cypress/videos/
 /cypress/screenshots/
