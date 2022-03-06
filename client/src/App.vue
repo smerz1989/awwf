@@ -30,7 +30,19 @@ export default {
     victory() {
       const jsConfetti = new JSConfetti()
       jsConfetti.addConfetti()
+    },
+    async getRandomWord() {
+      try{
+        const random_word_response = await axios.get(`${WORD_API_URL}/random`);
+        console.log(`Answer is ${random_word_response.data[0].word}`);
+        this.wordle_answer=random_word_response.data[0].word;
+      }catch(err){
+        console.error(err);
+      }
     }
+  },
+  mounted(){
+    this.getRandomWord();
   }
 }
 </script>
