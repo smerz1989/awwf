@@ -33,7 +33,7 @@
                 }
                 return(indices)
             },
-            enterWord(){
+            async enterWord(){
                 console.log(this.letters)
                 var word=''
                 for(var i =1; i<=Object.keys(this.letters).length;i++){
@@ -41,10 +41,10 @@
                     word=word.concat(this.letters[i])
                 }
                 console.log(word)
-                const is_valid = this.isWordValid(word);
+                const is_valid = await this.isWordValid(word);
                 if(!is_valid){
                     this.letterClass="error";
-                    setTimeout(()=>{this.letterClass="col-sm-1";},500);
+                    setTimeout(()=>{this.letterClass="letter-border";},500);
                 }else{
                     var num_correct_letters = this.revealLetters(this.letters)
                     console.log(`Number of correct letters ${num_correct_letters}`)
@@ -78,6 +78,7 @@
                 try{
                     const valid_response = await axios.get(`${WORD_API_URL}/${word}`);
                     this.is_valid=valid_response.data;
+                    return valid_response.data;
                 }catch(err){
                     console.error(err);
                 }
@@ -106,6 +107,7 @@
         position: relative;
         animation: shake .1s linear;
         animation-iteration-count: 3;
+        height:100%;
     }
     .word-border {
         height:100%;

@@ -75,10 +75,23 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  background-color: 351431;
 }
 
 .flex-container > .div {
   text-align: center;
   height: 100%;
+  background-color: 351431;
+}
+#app {
+  background-color: #3F3047;
+  margin: 0px;
+  min-height: 100vh;
+  padding: 0px;
+}
+html, body {
+    margin: 0px;
+    min-height: 100vh;
+    padding: 0px;
 }
 </style>

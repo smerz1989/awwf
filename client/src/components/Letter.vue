@@ -31,15 +31,15 @@ export default {
         text-align: center;
     }
     input:disabled {
-        opacity: 0.7;
+        opacity: 0.8;
     }
     .neutral {
-        background-color:azure;
+        background-color: #DFE0DC;
     }
     .rightletter {
-        background-color: gold;
+        background-color: #EEF36A;
     }
     .rightlocation {
-        background-color: lightgreen;
+        background-color: #9BC995;
     }
 </style>
