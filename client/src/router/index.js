@@ -21,6 +21,23 @@ const routes = [
   {
     path: '/wordle',
     component: WordleView
+  },
+  {
+    path: '/wordle/:answer',
+    component: WordleView,
+    props: true
+  },
+  {
+    path: '/wordle_input',
+    component: function () {
+      return import('../views/WordleForm.vue')
+    }
+  },
+  {
+    path: '/chat',
+    component: function () {
+      return import('../views/ChatView.vue')
+    }
   }
 ]
 

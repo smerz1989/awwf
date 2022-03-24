@@ -20,6 +20,9 @@ export default {
     Letter,
     Word
   },
+  props: {
+    answer: String
+  },
   methods: {
     incrementGuess() {
         this.current_guess_number;
@@ -42,7 +45,12 @@ export default {
     }
   },
   mounted(){
-    this.getRandomWord();
+    if(this.answer){
+      this.wordle_answer=this.answer;
+      console.log(`New answer is ${this.wordle_answer}`)
+    }else{
+      this.getRandomWord();
+    }
   }
 }
 </script>
@@ -57,41 +65,12 @@ export default {
 </template>
 
 <style>
-.form-group {
-  margin-bottom: 15px;
-}
-
-.flex-container {
-  display: flex;
-  height: 100%;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: center;
-}
-
 .app-container { 
   display: flex;
   height: calc(100vh - 100px);
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: 351431;
-}
-
-.flex-container > .div {
-  text-align: center;
-  height: 100%;
-  background-color: 351431;
-}
-#app {
-  background-color: #3F3047;
-  margin: 0px;
-  min-height: 100vh;
-  padding: 0px;
-}
-html, body {
-    margin: 0px;
-    min-height: 100vh;
-    padding: 0px;
+  background-color: #062F4F;
 }
 </style>

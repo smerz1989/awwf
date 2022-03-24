@@ -3,7 +3,7 @@ import Letter from "./Letter.vue"
 import Word from "./Word.vue"
 import JSConfetti from 'js-confetti'
 import axios from 'axios'
-const WORD_API_URL="http://localhost:5000/words"
+const WORD_API_URL="http://localhost:5001/words"
 export default {
   // component options
   data() {

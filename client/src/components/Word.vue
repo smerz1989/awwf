@@ -1,7 +1,7 @@
 <script>
     import axios from "axios"
     import Letter from "./Letter.vue"
-    const WORD_API_URL="http://localhost:5000/words/is_valid"
+    const WORD_API_URL="http://localhost:5001/words/is_valid"
     export default {
         data() {
             return {

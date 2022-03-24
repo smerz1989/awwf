@@ -15,6 +15,8 @@ const wordsRouter = require('./routes/words');
 
 
 const app = express();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
 
 //Middleware
 app.use(cors());
@@ -29,6 +31,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/words', wordsRouter);
+
+app.listen(5001, ()=>{
+    console.log(`Listening on port 5000!`)
+})
+
+// IO Socket Connection
+io.on('connection', function(socket) {
+    console.log(socket.id)
+    socket.on('SEND_MESSAGE', function(data) {
+        io.emit('MESSAGE', data)
+    });
+});
 
 //Connect to Mongo DB
 try{
