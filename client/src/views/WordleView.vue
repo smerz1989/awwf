@@ -1,8 +1,9 @@
 <script>
-import Letter from "../components/Letter.vue"
-import Word from "../components/Word.vue"
-import JSConfetti from 'js-confetti'
-import axios from 'axios'
+import Letter from "../components/Letter.vue";
+import Word from "../components/Word.vue";
+import JSConfetti from 'js-confetti';
+import axios from 'axios';
+import {useCookies} from 'vue3-cookies';
 const WORD_API_URL="http://localhost:5000/words"
 export default {
   // component options
@@ -13,7 +14,8 @@ export default {
       disabled_words: {1: false,2: true,3: true,4: true,5: true,6: true},
       valid_words: ['ghost','pitch','hitch','haunt'],
       all_words: "",
-      wordle_answer: 'hitch'
+      wordle_answer: 'hitch',
+      wordle_creator: false
     }
   },
   components: {
@@ -44,6 +46,10 @@ export default {
       }
     }
   },
+  setup(){
+    const { cookies } = useCookies();
+    return { cookies };
+  },
   mounted(){
     if(this.answer){
       this.wordle_answer=this.answer;
@@ -51,12 +57,17 @@ export default {
     }else{
       this.getRandomWord();
     }
+    var forms_cookies = this.cookies.get("FormsCreated");
+    console.log(`Forms created are ${forms_cookies}`);
+    this.wordle_creator = (forms_cookies==this.wordle_answer);
+    console.log(`User is form creator? ${this.wordle_creator}`);
   }
 }
 </script>
 
 <template>
   <div class="app-container">
+  <h1 v-if="wordle_creator">Here's the Wordle Form You Made</h1>
   <div class="flex-container" v-for="index in num_guesses" :key="index">
     <Word v-if="index==1" v-bind:disabled="disabled_words[index]" v-bind:valid_words="valid_words" v-bind:wordle_answer="wordle_answer" @valid-word-entered="incrementGuess" @correct-word="victory"></Word>
     <Word v-else v-bind:disabled="disabled_words[index]" v-bind:valid_words="valid_words" v-bind:wordle_answer="wordle_answer" @valid-word-entered="incrementGuess" @correct-word="victory"></Word>

@@ -19,7 +19,7 @@
                 console.log(`Setting cookie FormsCreated to ${wordle_answer}`)
                 this.cookies.set("FormsCreated", wordle_answer);
                 console.log(`Programatically rerouting to wordle site to: /wordle/${wordle_answer}`)
-                $router.push({path: `/wordle/${wordle_answer}`})
+                this.$router.push({path: `/wordle/${wordle_answer}`})
             }
         }
     }
